@@ -33,3 +33,8 @@ summary_df = pd.DataFrame({
 tools.display_dataframe_to_user(name="Top 10 Items and Most Common Day of the Week", dataframe=summary_df)
 
 summary_df
+
+# Quantity of each Stock Code purchased
+quantity_per_stock_code = df_full.groupby('StockCode')['Quantity'].sum().sort_values(ascending=False).head(10)
+
+quantity_per_stock_code.reset_index()
