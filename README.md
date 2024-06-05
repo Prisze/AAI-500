@@ -34,7 +34,7 @@ tools.display_dataframe_to_user(name="Top 10 Items and Most Common Day of the We
 
 summary_df
 
-# Quantity of each Stock Code purchased
+# Quantity of each Stock Code
 quantity_per_stock_code = df_full.groupby('StockCode')['Quantity'].sum().sort_values(ascending=False).head(10)
 
 quantity_per_stock_code.reset_index()
