@@ -30,6 +30,6 @@ summary_df = pd.DataFrame({
     'Most Common Day': common_day_per_item.values
 })
 
-import ace_tools as tools; tools.display_dataframe_to_user(name="Top 10 Items and Most Common Day of the Week", dataframe=summary_df)
+tools.display_dataframe_to_user(name="Top 10 Items and Most Common Day of the Week", dataframe=summary_df)
 
 summary_df
