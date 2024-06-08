@@ -36,3 +36,25 @@ summary_df
 quantity_per_stock_code = df_full.groupby('StockCode')['Quantity'].sum().sort_values(ascending=False).head(10)
 
 quantity_per_stock_code.reset_index()
+
+
+
+
+#Newer Code
+import pandas as pd
+
+csv_file_path = '/Users/chris-alleyne/Downloads/Online_Retail.csv'
+
+df = pd.read_csv(csv_file_path)
+
+print(df.head())
+
+df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+df['DayOfWeek'] = df['InvoiceDate'].dt.day_name()
+
+product_quantities_by_day = df.groupby(['StockCode', 'DayOfWeek'])['Quantity'].sum().reset_index()
+
+print(product_quantities_by_day.head())
+
+output_file_path = '/Users/your-username/Downloads/product_quantities_by_day.csv'
+product_quantities_by_day.to_csv(output_file_path, index=False)
