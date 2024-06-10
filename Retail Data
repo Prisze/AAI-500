@@ -60,3 +60,29 @@ output_file_path = '/Users/your-username/Downloads/product_quantities_by_day.csv
 product_quantities_by_day.to_csv(output_file_path, index=False)
 
 
+# Code from 6/10/24
+
+import pandas as pd
+
+excel_file_path = '/mnt/data/Online Retail.xlsx'
+df = pd.read_excel(excel_file_path, nrows=10000)
+
+# Top 10 most frequently purchased stock codes
+top_10_stock_codes = df['StockCode'].value_counts().head(10)
+top_10_stock_codes_df = top_10_stock_codes.reset_index()
+top_10_stock_codes_df.columns = ['StockCode', 'PurchaseCount']
+
+# Analyze by day of the week
+df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+df['DayOfWeek'] = df['InvoiceDate'].dt.day_name()
+
+# Dataframe to include only the top 10 stock codes
+df_top_10 = df[df['StockCode'].isin(top_10_stock_codes_df['StockCode'])]
+
+# Group by StockCode and DayOfWeek to find the purchase counts
+top_10_by_day = df_top_10.groupby(['StockCode', 'DayOfWeek']).size().unstack(fill_value=0)
+
+import ace_tools as tools; tools.display_dataframe_to_user(name="Top 10 Stock Codes and Their Purchase Counts by Day of Week", dataframe=top_10_by_day)
+
+print(top_10_stock_codes_df)
+print(top_10_by_day)
