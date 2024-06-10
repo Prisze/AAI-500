@@ -1,19 +1,27 @@
-## Final Project
-#Online Retail
-- Project Status: Active
-##Project Intro/Objective
-
-##Partner(s)/Contributor(s)
--Christopher Alleyne
--Anand Fernandes
--Priscilla Marquez
-##Methods Used
+**Online Retail**
 -
-##Technologies
--Python
+- Project Status: Active
 
-##Project Description
+**Project Intro/Objective**
+-
+**Partner(s)/Contributor(s)**
+-
+Christopher Alleyne,
+Anand Fernandes,
+Priscilla Marquez
 
-##License
+**Methods Used**
+-
 
-##Acknowledgments
+**Technologies**
+-
+Python
+
+**Project Description**
+-
+
+**License**
+-
+
+**Acknowledgments**
+-
