@@ -3,3 +3,4 @@ pandas
 matplotlib
 scipy
 seaborn
+ace_tools
