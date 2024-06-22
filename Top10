@@ -1,1 +1,10 @@
+import pandas as pd
 
+# Function to find the top 10 most common stock codes
+def top_10_stock_codes(df, column_name):
+    top_10 = df[column_name].value_counts().head(10)
+    return top_10
+
+# Assuming df is your DataFrame and 'StockCode' is the column with stock codes
+top_10 = top_10_stock_codes(df, 'StockCode')
+print(top_10)
