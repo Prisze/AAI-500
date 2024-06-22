@@ -8,3 +8,33 @@ def top_10_stock_codes(df, column_name):
 # Assuming df is your DataFrame and 'StockCode' is the column with stock codes
 top_10 = top_10_stock_codes(df, 'StockCode')
 print(top_10)
+
+import pandas as pd
+
+# Read the CSV file
+online_retail = pd.read_csv('Online Retail.csv', encoding_errors='ignore')
+
+# Convert the date column to datetime format
+online_retail['InvoiceDate'] = pd.to_datetime(online_retail['InvoiceDate'])
+
+# Add the day of the week in the format 'ddd' (e.g., 'Mon', 'Tue', etc.)
+online_retail['Day of the Week'] = online_retail['InvoiceDate'].dt.day_name()
+online_retail['Month'] = online_retail['InvoiceDate'].dt.month_name()
+
+# Separate Date and Time
+online_retail['InvoiceTime'] = online_retail['InvoiceDate'].dt.time
+online_retail['InvoiceDate'] = online_retail['InvoiceDate'].dt.date
+
+# Add Cancel column to identify if invoice has been cancelled
+online_retail['Cancelled'] = online_retail['InvoiceNo'].astype(str).str.startswith('C')
+
+# Function to find the top 10 most common stock codes
+def top_10_stock_codes(df, column_name):
+    top_10 = df[column_name].value_counts().head(10)
+    return top_10
+
+# Get the top 10 most common stock codes
+top_10 = top_10_stock_codes(online_retail, 'StockCode')
+
+# Display the top 10 most common stock codes
+print(top_10)
