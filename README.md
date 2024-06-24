@@ -3,7 +3,8 @@
 - Project Status: Active
 
 **Project Intro/Objective**
--
+-  This research will explain the data processing and cleaning, measures of central tendency with visualizations for sales patterns, and multivariate linear regression model for sales predictions. 
+
 **Partner(s)/Contributor(s)**
 -
 Christopher Alleyne,
